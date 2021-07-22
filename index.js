@@ -5,10 +5,15 @@ class Client {
 
 class CheckingAccount {
   bankNumber;
-  accountBalance;
+  _accountBalance = 0;
   withdraw(value) {
-    if (this.accountBalance >= value) {
-      this.accountBalance -= value;
+    if (this._accountBalance >= value) {
+      this._accountBalance -= value;
+    }
+  }
+  deposit(value) {
+    if (value > 0) {
+      this._accountBalance += value;
     }
   }
 }
@@ -22,12 +27,9 @@ clientAlice.name = "Alice";
 clientAlice.id = 12377788878;
 
 const checkingAccountRicardo = new CheckingAccount();
-checkingAccountRicardo.bankNumber = 0123;
-checkingAccountRicardo.accountBalance = 0;
+checkingAccountRicardo.bankNumber = '655';
 
-const deposit = 100;
-checkingAccountRicardo.accountBalance = deposit;
-console.log(checkingAccountRicardo.accountBalance);
+checkingAccountRicardo.deposit(100);
+checkingAccountRicardo.withdraw(50);
 
-checkingAccountRicardo.withdraw(200);
-console.log(checkingAccountRicardo.accountBalance);
+console.log(checkingAccountRicardo);
