@@ -1,5 +1,7 @@
 export class CheckingAccount {
   bankNumber;
+  client;
+  
   _accountBalance = 0;
   
   withdraw(value) {
@@ -14,5 +16,11 @@ export class CheckingAccount {
     if (value < 0) return;
     
     this._accountBalance += value;
+  }
+  
+  transfer(value, checkingAccount) {
+    const transferValue = this.withdraw(value);
+    
+    checkingAccount.deposit(transferValue);
   }
 }
