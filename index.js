@@ -6,15 +6,19 @@ class Client {
 class CheckingAccount {
   bankNumber;
   _accountBalance = 0;
+  
   withdraw(value) {
     if (this._accountBalance >= value) {
       this._accountBalance -= value;
+      
+      return value;
     }
   }
+  
   deposit(value) {
-    if (value > 0) {
-      this._accountBalance += value;
-    }
+    if (value < 0) return;
+    
+    this._accountBalance += value;
   }
 }
 
@@ -29,7 +33,8 @@ clientAlice.id = 12377788878;
 const checkingAccountRicardo = new CheckingAccount();
 checkingAccountRicardo.bankNumber = '655';
 
-checkingAccountRicardo.deposit(100);
-checkingAccountRicardo.withdraw(50);
+checkingAccountRicardo.deposit(300);
+const withdrawValue = checkingAccountRicardo.withdraw(130);
 
+console.log(withdrawValue);
 console.log(checkingAccountRicardo);
