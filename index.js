@@ -1,26 +1,5 @@
-class Client {
-  name;
-  id;
-}
-
-class CheckingAccount {
-  bankNumber;
-  _accountBalance = 0;
-  
-  withdraw(value) {
-    if (this._accountBalance >= value) {
-      this._accountBalance -= value;
-      
-      return value;
-    }
-  }
-  
-  deposit(value) {
-    if (value < 0) return;
-    
-    this._accountBalance += value;
-  }
-}
+import { Client } from './Client.js';
+import { CheckingAccount } from './CheckingAccount.js';
 
 const clientRicardo = new Client();
 clientRicardo.name = "Ricardo";
