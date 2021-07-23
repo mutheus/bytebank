@@ -18,8 +18,7 @@ checkingAccount2.client = client2;
 checkingAccount2.bankNumber = '103';
 
 checkingAccount1.deposit(300);
-const withdrawValue = checkingAccount1.withdraw(130);
+checkingAccount1.withdraw(130);
 checkingAccount1.transfer(20, checkingAccount2);
 
-console.log(checkingAccount1);
-console.log(checkingAccount2);
+console.log(checkingAccount2.accountBalance);

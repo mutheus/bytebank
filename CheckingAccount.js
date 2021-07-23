@@ -1,8 +1,24 @@
+import { Client } from './Client.js';
+
 export class CheckingAccount {
   bankNumber;
-  client;
   
+  _client;
   _accountBalance = 0;
+  
+  get client() {
+    return this._client;
+  }
+  
+  set client(value) {
+    if (value instanceof Client) {
+      this._client = value; 
+    }
+  }
+  
+  get accountBalance() {
+    return this._accountBalance;
+  }
   
   withdraw(value) {
     if (this._accountBalance >= value) {
