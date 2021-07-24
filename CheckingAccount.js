@@ -1,6 +1,8 @@
 import { Client } from './Client.js';
 
 export class CheckingAccount {
+  static accountsNumber = 0;
+  
   bankNumber;
   
   _client;
@@ -20,6 +22,12 @@ export class CheckingAccount {
     return this._accountBalance;
   }
   
+  constructor(bankNumber, client) {
+    this.bankNumber = bankNumber;
+    this.client = client;
+    CheckingAccount.accountsNumber += 1;
+  }
+  
   withdraw(value) {
     if (this._accountBalance >= value) {
       this._accountBalance -= value;
@@ -36,7 +44,6 @@ export class CheckingAccount {
   
   transfer(value, checkingAccount) {
     const transferValue = this.withdraw(value);
-    
     checkingAccount.deposit(transferValue);
   }
 }
