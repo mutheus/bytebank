@@ -7,7 +7,11 @@ export class Employee {
     this._password;
   }
   
-  newPassword(password) {
+  authenticate(password) {
+    return this._password === password;
+  }
+  
+  createPassword(password) {
     this._password = password;
   }
 }

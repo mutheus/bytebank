@@ -1,13 +1,11 @@
 export class Client {
-  name;
-  _id;
-  
-  get id() {
-    return _id;
-  }
-  
-  constructor(name, id) {
+  constructor(name, id, password) {
     this.name = name;
     this._id = id;
+    this._password = password;
+  }
+  
+  get id() {
+    return this._id;
   }
 }
