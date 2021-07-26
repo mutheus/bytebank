@@ -1,5 +1,9 @@
 export class Account {
   constructor(accountBalance, bankNumber, client) {
+    if (this.constructor === Account) {
+      throw new Error(`You shouldn't declarer an Account instance.`);
+    }
+    
     this._accountBalance = accountBalance;
     this._bankNumber = bankNumber;
     this._client = client;
@@ -20,14 +24,19 @@ export class Account {
   }
   
   withdraw(value) {
-    const fee = 1,
-      withdrawValue = fee * value;
-      
+    throw new Error('This is an abstract method, you should overwrite it.');
+  }
+  
+  _withdraw(fee, value) {
+    const withdrawValue = fee * value;
+    
     if (this._accountBalance >= withdrawValue) {
       this._accountBalance -= withdrawValue;
       
       return withdrawValue;
     }
+    
+    return 0;
   }
   
   deposit(value) {
