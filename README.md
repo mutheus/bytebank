@@ -1,2 +1,2 @@
 # bytebank
-Curso JavaScript: Programando a Orientação a Objetos da Alura
+Cursos "JavaScript: Programando a Orientação a Objetos" e "JavaScript: Interfaces e Herança em Orientação a Objetos" da Alura
